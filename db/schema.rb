@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_25_144800) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_25_143631) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,15 +19,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_144800) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_subject_data_on_subject_id"
-  end
-
-  create_table "subject_user", force: :cascade do |t|
-    t.bigint "subject_id", null: false
-    t.bigint "user_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["subject_id"], name: "index_subject_user_on_subject_id"
-    t.index ["user_id"], name: "index_subject_user_on_user_id"
   end
 
   create_table "subject_users", force: :cascade do |t|
@@ -40,6 +31,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_144800) do
   end
 
   create_table "subjects", force: :cascade do |t|
+    t.string "name"
+    t.string "pin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -57,8 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_144800) do
   end
 
   add_foreign_key "subject_data", "subjects"
-  add_foreign_key "subject_user", "subjects"
-  add_foreign_key "subject_user", "users"
   add_foreign_key "subject_users", "subjects"
   add_foreign_key "subject_users", "users"
 end

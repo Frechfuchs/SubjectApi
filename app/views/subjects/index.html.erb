@@ -2,7 +2,7 @@
 <p>Find me in app/views/subjects/index.html.erb</p>
 
 <% @subjects.each do |subject| %>
- <%= link_to subject.id, subject_path(subject.id) %> <br>
+ <%= link_to "#{subject.id} #{subject.name}", subject_path(subject.id) %> <br>
 <% end %>
 <br>
 <%= link_to "New", new_subject_path %>

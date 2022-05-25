@@ -3,6 +3,16 @@
 <%= form_for(@subject, url: subject_path(@subject), method: :put) do |f| %>
   <%= render "devise/shared/error_messages", resource: @subject %>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pin %><br />
+    <%= f.text_field :pin %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Save" %>
   </div>

@@ -4,6 +4,16 @@
 <%= form_for(@subject, url: subjects_path) do |f| %>
   <%= render "devise/shared/error_messages", resource: @subject %>
 
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pin %><br />
+    <%= f.text_field :pin %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Create" %>
   </div>

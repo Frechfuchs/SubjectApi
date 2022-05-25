@@ -1,6 +1,9 @@
 <h1>Subjects#show <%= @subject.id %></h1>
 <p>Find me in app/views/subjects/show.html.erb</p>
 
+<p>Name: <%= @subject.name %></p>
+<p>PIN: <%= @subject.pin %></p>
+
 <%= link_to "Edit", edit_subject_path(@subject.id) %>
 <br>
 <%= link_to "Index", subjects_path %>
