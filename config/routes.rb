@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :subjects
   
   #match '/users',   to: 'users#index',   via: 'get'
   devise_for :users

@@ -1,0 +1,16 @@
+<h1>Subjects#edit <%= @subject.id %></h1>
+<p>Find me in app/views/subjects/edit.html.erb</p>
+<%= form_for(@subject, url: subject_path(@subject), method: :put) do |f| %>
+  <%= render "devise/shared/error_messages", resource: @subject %>
+
+  <div class="actions">
+    <%= f.submit "Save" %>
+  </div>
+<% end %>
+<br>
+<%= button_to "Delete", @subject, :method => :delete %>
+<br>
+<%= link_to "Back", subject_path(@subject.id) %>
+<br>
+<br>
+<%= link_to "Index", subjects_path %>
