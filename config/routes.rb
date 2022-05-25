@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :subjects
+  get 'subject_data/:id', to: 'subject_data#show', as: 'subject_data/show'
   
   #match '/users',   to: 'users#index',   via: 'get'
   devise_for :users

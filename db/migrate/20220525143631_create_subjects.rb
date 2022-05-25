@@ -9,6 +9,7 @@ class CreateSubjects < ActiveRecord::Migration[7.0]
 
     create_table :subject_data do |t|
       t.references :subject, null: false, foreign_key: true
+      t.json :payload
 
       t.timestamps
     end

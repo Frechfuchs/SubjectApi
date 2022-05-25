@@ -16,6 +16,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_25_143631) do
 
   create_table "subject_data", force: :cascade do |t|
     t.bigint "subject_id", null: false
+    t.json "payload"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["subject_id"], name: "index_subject_data_on_subject_id"

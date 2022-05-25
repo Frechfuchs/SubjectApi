@@ -3,7 +3,12 @@
 
 <p>Name: <%= @subject.name %></p>
 <p>PIN: <%= @subject.pin %></p>
+<p>
+  <% @subject.subject_data.each do |subject_data| %>
+    <%= link_to "Data #{subject_data.created_at}", subject_data_show_path(subject_data) %><br>
+  <% end %>
+</p>
 
-<%= link_to "Edit", edit_subject_path(@subject.id) %>
+<%= link_to "Edit", subject_path(@subject.id) %>
 <br>
 <%= link_to "Index", subjects_path %>
