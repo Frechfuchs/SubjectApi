@@ -15,8 +15,9 @@ class SubjectsController < ApplicationController
     end
   end
 
-  def update    
-    if @subject.save
+  def update  
+    # TODO: Get Params
+    if @subject.update(permitted_update_params)
       redirect_to @subject
     else
       render :edit, status: :unprocessable_entity
@@ -44,6 +45,10 @@ class SubjectsController < ApplicationController
   private 
   def permitted_params
     params.permit(:id).to_h
+  end
+
+  def permitted_update_params
+    params.require(:subject).permit(:name, :pin)
   end
 
   def find_subject

@@ -12,7 +12,7 @@ class Api::V1::SubjectDataController < Api::V1::BaseController
       end
 
     else
-      render json: { status: "error", errors: ['not_found'] }
+      render json: { status: "error", error: 'not_found' }
     end
   end
 
