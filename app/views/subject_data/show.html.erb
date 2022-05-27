@@ -4,7 +4,7 @@
 <% @json = JSON.parse(@subject_datum.payload) %>
 <% if @json %>
   <% @json["data"].map do |key, data| %>
-    <p><%= "#{key}: #{data}" %></p>
+    <%= render partial: "subject_data_tile", locals: {key: key, data: data} %>
   <% end %> 
 <% end %>
 

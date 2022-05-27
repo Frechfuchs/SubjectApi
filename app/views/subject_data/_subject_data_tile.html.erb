@@ -1,0 +1,9 @@
+<% if data.is_a? String %>
+  <p><%= "#{key}: #{data}" %></p>
+<% elsif data.is_a? Hash %>
+  <% data.each_key do |data_key| %>
+    <div style="margin-left: 16px;">
+      <%= render partial: "subject_data_tile", locals: {key: data_key, data: data[data_key]} %>
+    </div>
+  <% end %>
+<% end %>
