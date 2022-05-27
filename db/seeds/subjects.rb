@@ -4,10 +4,8 @@ def seed_subjects
 
     SubjectDatum.create!(subject: subject, payload: example_json)
     SubjectDatum.create!(subject: subject, payload: example_json_nested)
-    SubjectDatum.create!(subject: subject, payload: example_json_nested)
-    SubjectDatum.create!(subject: subject, payload: example_json)
-    SubjectDatum.create!(subject: subject, payload: example_json_nested)
     SubjectDatum.create!(subject: subject, payload: example_json_stringified)
+    SubjectDatum.create!(subject: subject, payload: example_json_array)
   end
 end
 
@@ -25,4 +23,13 @@ end
 
 def example_json_stringified
   { data: "{\"name\":\"subject\",\"message\":\"foo\", \"date\":\"bar\",\"solution\":42}" } 
+end
+
+def example_json_array
+  { data: [
+    { "message": "foo" },
+    { "nested_object": 
+      { "message": "bar" }},
+    "some notice",
+    1337  ]}
 end

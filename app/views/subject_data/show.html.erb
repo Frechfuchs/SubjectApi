@@ -2,15 +2,11 @@
 <p>Find me in app/views/subject_data/show.html.erb</p>
 
 <% if @subject_datum.payload["data"].is_a? String %>
-  <% @json = JSON.parse(@subject_datum.payload["data"]) %>
+  <% @json = JSON.parse(@subject_datum.payload["data"]) %>  
 <% else %>
   <% @json = @subject_datum.payload["data"] %>
 <% end %>
-<% if @json %>
-  <% @json.map do |key, data| %>
-    <%= render partial: "subject_data_tile", locals: {key: key, data: data} %>
-  <% end %> 
-<% end %>
+<%= render partial: "subject_data_tile", locals: {key: "data", data: @json} %>
 
 <br>
 <%= link_to "Back", subject_path(@subject_datum.subject) %>

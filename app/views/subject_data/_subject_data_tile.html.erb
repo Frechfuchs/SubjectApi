@@ -2,7 +2,14 @@
   <p><%= "#{key}: #{data}" %></p>
 <% elsif data.is_a? Numeric %>
   <p><%= "#{key}: #{data}" %></p>
+<% elsif data.is_a? Array %>
+  <% data.each_with_index do |el, index| %>
+    <div style="margin-left: 16px;">
+      <%= render partial: "subject_data_tile", locals: {key: index, data: el} %>
+    </div>
+  <% end %>
 <% elsif data.is_a? Hash %>
+  <p><%= key %></p>
   <% data.each_key do |data_key| %>
     <div style="margin-left: 16px;">
       <%= render partial: "subject_data_tile", locals: {key: data_key, data: data[data_key]} %>
