@@ -1,0 +1,12 @@
+<h1>SubjectData#show</h1>
+<p>Find me in app/views/subject_data/show.html.erb</p>
+
+<% if @subject_datum.payload["data"].is_a? String %>
+  <% @json = JSON.parse(@subject_datum.payload["data"]) %>  
+<% else %>
+  <% @json = @subject_datum.payload["data"] %>
+<% end %>
+<%= render partial: "subject_data_tile", locals: {key: "data", data: @json} %>
+
+<br>
+<%= link_to "Back", subject_path(@subject_datum.subject) %>

@@ -1,0 +1,13 @@
+<h1>Subjects#show <%= @subject.id %></h1>
+<p>Find me in app/views/subjects/show.html.erb</p>
+
+<p>Name: <%= @subject.name %></p>
+<p>PIN: <%= @subject.pin %></p>
+<p>
+  <% @subject.subject_data.each do |subject_data| %>
+    <%= link_to "Data #{subject_data.created_at}", subject_data_show_path(subject_data) %><br>
+  <% end %>
+</p>
+
+<p><%= link_to "Edit", edit_subject_path(@subject.id) %></p>
+<%= link_to "Index", subjects_path %>
